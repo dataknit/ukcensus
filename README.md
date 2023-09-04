@@ -6,9 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-ukcensus is an R package designed to simplify the retrieval and analysis
-of Census 2021 data from England and Wales. It allows you to create
-custom datasets of the census, outputting them to tibble format.
+ukcensus is an R package designed to simplify the retrieval of Census
+2021 data from England and Wales. It allows you to create custom
+datasets of the census, outputting them to tibble format.
 
 ## Installation
 
@@ -93,6 +93,10 @@ issue or submit a pull request on the GitHub repository.
 
 The ukcensus package is open-source and distributed under the MIT
 License. See the LICENSE file for more details.
+
+The data accessed through the ukcensus package is sourced from the
+Office for National Statistics (ONS) of England and Wales. This data is
+made available through the Open Government License (OGL).
 
 ## Acknowledgments
 
