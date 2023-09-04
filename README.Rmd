@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ukcensus
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+ukcensus is an R package designed to simplify the retrieval and analysis of Census 2021 data from England and Wales. It allows you to create custom datasets of the census, outputting them to tibble format.
+
+## Installation
+
+You can install the development version of ukcensus using the `devtools` package:
+
+```{r eval=FALSE}
+# Install devtools if not already installed
+if (!require(devtools)) {
+  install.packages("devtools")
+}
+
+# Install ukcensus from GitHub
+devtools::install_github("dataknit/ukcensus")
+```
+
+## Usage
+
+ukcensus is built around the `create_custom_dataset()` function. For example, to create a dataset of the age of all usual residents by MSOA, you could write:
+
+```{r}
+library(ukcensus)
+create_custom_dataset("msoa", "resident_age_6a") |>
+  head()
+```
+
+But how do we know what to put into this query? That's where the `get_available_` set of functions come in handy. You can use them to get available:
+
+- populations: (e.g. households and usual residents)
+- area types: the level of geographic specificity (e.g. country, Local Authority and LSOA)
+- areas: what areas are available for a given area type
+- variables: what sociodemographic variables (e.g. age, English language proficiency, disability status) data is available for
+- categorisations: given a variable, how to divide the values of it (e.g. age into 101 categories or 2)
+
+Each function outputs the available options as a tibble.
+
+```{r}
+get_available_variables()
+```
+
+A typical workflow is to go through the `get_available_` functions to determine what values you will put in `create_custom_dataset`.
+
+## Contribution
+
+We welcome contributions to the ukcensus package. If you have suggestions, bug reports, or want to contribute code, please open an issue or submit a pull request on the GitHub repository.
+
+## License
+
+The ukcensus package is open-source and distributed under the MIT License. See the LICENSE file for more details.
+
+## Acknowledgments
+
+The ukcensus package is made possible through England and Wales' Office for National Statistics (ONS) work on designing and collecting the census and making it available through an [open API](https://developer.ons.gov.uk/). This package uses the [Create a Custom Dataset](https://developer.ons.gov.uk/createyourowndataset/) functionality.
