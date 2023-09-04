@@ -100,7 +100,7 @@ get_available_categorisations <- function(variable, population_type = "UR", nest
   categorisations_tibble <- tidyr::unnest_wider(categorisations_tibble, categories, names_sep = "_")
 
   categorisations_tibble <- categorisations_tibble |>
-    select(-categories_id, -quality_statement_text, -default_categorisation)
+    dplyr::select(-categories_id, -quality_statement_text, -default_categorisation)
   if (nest) {
     categorisations_tibble <- categorisations_tibble |>
       tidyr::nest(data = categories_label)
@@ -178,8 +178,8 @@ convert_to_tibble <- function(list_data, column_names) {
   observation <- list_data$observation
 
   tibble::tibble(
-    !!!setNames(option_values, dimension_names),
-    # !!!setNames(option_id, paste0(dimension_names, "_id")),
+    !!!stats::setNames(option_values, dimension_names),
+    # !!!stats::setNames(option_id, paste0(dimension_names, "_id")),
     observation = observation
   )
 }
