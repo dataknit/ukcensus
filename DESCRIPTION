@@ -1,11 +1,12 @@
 Package: ukcensus
-Title: What the Package Does (One Line, Title Case)
+Title: Access UK Census 2021 Data
 Version: 0.0.0.9000
 Authors@R: person("Jo", "Kroese", , "jo@jokroese.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6995-6797"))
-Description: What the package does (one paragraph).
+Description: ukcensus is an R package designed to simplify the retrieval of Census 2021 data from England and Wales.
+             It allows you to create custom datasets of the census, outputting them to tibble format.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 URL: https://dataknit.github.io/ukcensus/
-License: MIT
+License: MIT + file LICENSE
